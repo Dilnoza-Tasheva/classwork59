@@ -1,21 +1,15 @@
 import * as React from 'react';
-import { useEffect } from 'react';
 
 interface Props {
   title: string;
   author: string;
+  onClick: React.MouseEventHandler;
 }
 
-const PostCard: React.FC<Props> = React.memo(({title, author}) => {
-  useEffect(() => {
-    console.log('[PostCard] (useEffect) - mount/update');
-  }, []);
-
-  console.log('[PostCard] render');
-
+const PostCard: React.FC<Props> = React.memo(({title, author, onClick}) => {
 
   return (
-    <div className="PostCard">
+    <div className="PostCard" onClick={onClick}>
       <div><h4>{title}</h4></div>
       <div><p className="Auhtor">{author}</p></div>
     </div>
